@@ -13,18 +13,19 @@ Golang has their own $GOPATH where you should store this project.
 This is usually ~/go/ after installing like above, where ~ refers to your home directory. 
 Instead of cloning this repository, you write
 ```
-go get https://github.com/armada-ths/click-backend
+go get github.com/armada-ths/click-backend
 ```
-This should get the code into your $GOPATH which is probably ~/go/github.com/armada-ths/click-backend
+This should get the code into your $GOPATH which is probably ~/go/src/github.com/armada-ths/click-backend
 
 Go to the source directory
 ```
-cd ~/go/github.com/armada-ths/click-backend
+cd ~/go/src/github.com/armada-ths/click-backend
 ```
 
-Install all depenencies for the project
+Install all depenencies for the project and build the binary file
 ```
 go install
+go build -o click
 ```
 
 ## Run the server locally
