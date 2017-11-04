@@ -83,4 +83,33 @@ If not working, run each line inside the server_install script separate in the s
 8. Now your server is running and listening to port 3001 (default configuration). Go to SERVER_IP:3001 and you should get a small text saying 404 page not found.
 
 
+## Setting up SSL
+In the previous step, you had the server up and running without SSL. 
+This section will guide you to set up nginx as a websocket proxy to force ssl connection oven the websocket as well. 
 
+1. Install nginx
+```
+sudo apt-get update
+sudo apt-get install nginx
+```
+2. Adjust your firewall
+```
+sudo ufw allow 'Nginx FULL'
+sudo ufw allow 'OpenSSH'
+sudo uft enable
+```
+Check what is now allowed with
+```
+sudo ufw status
+```
+3. Install certbot
+```
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx
+```
+
+```
+sudo ln -s /etc/nginx/sites-available/{virtual host} /etc/nginx/sites-enabled/
+sudo certbot --nginx -d SERVER_NAME
+```
