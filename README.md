@@ -56,6 +56,6 @@ This will guide you how to setup the server on a Digital Ocean server.
 2. Connect to the server using ssh. Again follow documentation from digital ocean if you do not know how to do this.
 3. Complie the go application for linux systems
 ```
-env  GOOS=linux go build
+env  GOOS=linux go build -o click
 ```
 
