@@ -56,6 +56,31 @@ This will guide you how to setup the server on a Digital Ocean server.
 2. Connect to the server using ssh. Again follow documentation from digital ocean if you do not know how to do this.
 3. Complie the go application for linux systems
 ```
-env  GOOS=linux go build -o click
+env  GOOS=linux go build -o build/click
 ```
+4. Copy files to your server. Could be anywhere, this example copies to the home directory of the user deployment
+```
+scp -r ./build/* deployment@SERVER_IP:~/
+```
+5. Connect to your server
+```
+ssh deployment@SERVER_IP
+```
+6. Initialize the database
+```
+./click init
+./click createuser
+```
+In this step you create the user that your end users will login to the app with, make sure to choose some good username and password
+
+7. Run the installation script
+```
+sudo bash server_install.sh
+```
+This should enable the script as a service. Meaning it automatically restarts when server restart.
+If not working, run each line inside the server_install script separate in the server terminal
+
+8. Now your server is running and listening to port 3001 (default configuration). Go to SERVER_IP:3001 and you should get a small text saying 404 page not found.
+
+
 

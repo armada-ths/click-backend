@@ -2,8 +2,8 @@
 Description=Click app
 
 [Service]
-WorkingDirectory=/var/www
-ExecStart=/var/www/click run
+WorkingDirectory=/home/deployment
+ExecStart=/home/deployment/click run
 Restart=on-failure
 Type=simple
 
