@@ -2,3 +2,5 @@
 *.lock
 *.exe
 gin-bin
+click
+click-backend
